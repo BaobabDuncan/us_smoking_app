@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+    <!-- Application my style sheet file -->
+	<link rel="stylesheet" type="text/css" href="./css/mystyle.css"/>
+
+    <!-- jQuery and jQtouch script file -->
+	<style type="text/css" media="screen">@import "./jqtouch/jqtouch.css";</style>
+	<style type="text/css" media="screen">@import "./themes/apple/theme.css";</style>
+	<script src="./jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+
+	<!-- Application Base script files -->
+	<script type="text/javascript" src="./js/db/DBHandler.js"></script>
+	<script type="text/javascript" src="./js/global/Constants.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/global/Global.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/global/ValueObject.js" charset="utf-8"></script>
+
+	<!-- Application script files -->
+	<script type="text/javascript" src="./js/bankbook/BankbookFacade.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/bankbook/BankbookMediator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/bankbook/BankbookProxy.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/bankbook/BankbookCommand.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="./js/poster/PosterFacade.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/poster/PosterMediator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/poster/PosterProxy.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/poster/PosterCommand.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="./js/product/ProductFacade.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/product/ProductMediator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/product/ProductProxy.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/product/ProductCommand.js" charset="utf-8"></script>
+
+	<script type="text/javascript" src="./js/setting/SettingFacade.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/setting/SettingMediator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/setting/SettingProxy.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/setting/SettingCommand.js" charset="utf-8"></script>
+
+
+
+
+    <script type="text/javascript" charset="utf-8">
+		var jQT = new $.jQTouch({
+		  icon:'jqtouch.png'
+		});
+		var bankbookFacade = new quitsmokingApp.BankbookFacade();
+		var posterFacade = new quitsmokingApp.PosterFacade();
+		var productFacade = new quitsmokingApp.ProductFacade();
+		var settingFacade = new quitsmokingApp.SettingFacade();
+
+
+		function onBodyLoad(){
+		  //dropAllDB();
+		  settingFacade.getSettingData();
+
+		  //posterFacade.showPosterListPage();
+		  //productFacade.showProductListPage();
+
+		}
+		function onDeviceReady(){
+			settingFacade.showIndexPage();
+			//settingFacade.showSettingPage();
+			//bankbookFacade.showBankbookListPage();
+			//settingFacade.showFirstSettingPage();
+			//productFacade.showProductListPage();
+			//posterFacade.showPosterListPage();
+		}
+    </script>
+  </head>
+  <body onload="onBodyLoad()" >
+    <div id="jqt">
+      <div id="test">
+
+      </div>
+
+	  <div id="indexview">
+		<div class="toolbar">
+			<h1>금연 은행</h1>
+			<a class="button" target="_blank" href="http://uksmart.dothome.co.kr/smoking.html">About</a>
+		</div>
+		<div id="indexview-wrapper">
+
+		</div>
+	  </div>
+
+	  <div id="bankbooklistview">
+          <div class="toolbar">
+              <h1>금연 통장</h1>
+			  <a class="back" href="#indexview">홈으로</a>
+          </div>
+		  <div id="bankbooklistview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="bankbookdetailview">
+          <div class="toolbar">
+              <h1>Bankbook Detail</h1>
+			  <a href="#" class="back">뒤로</a>
+          </div>
+		  <div id="bankbookdetailview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="firstsettingview">
+          <div class="toolbar">
+              <h1>금연 통장 개설</h1>
+          </div>
+		  <div id="firstsettingview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="settingview">
+          <div class="toolbar">
+              <h1>개인 설정</h1>
+			  <a class="back" href="#indexview">홈으로</a>
+          </div>
+		  <div id="settingview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="productlistview">
+          <div class="toolbar">
+              <h1>상품 리스트</h1>
+			  <a class="back" href="#indexview">홈으로</a>
+          </div>
+		  <div id="productlistview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="productdetailview">
+          <div class="toolbar">
+              <h1>상세정보</h1>
+			  <a href="#" class="back">뒤로</a>
+          </div>
+		  <div id="productdetailview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="posterlistview">
+          <div class="toolbar">
+              <h1>포스터 리스트</h1>
+			  <a class="back" href="#indexview">홈으로</a>
+          </div>
+		  <div id="posterlistview-wrapper">
+
+		  </div>
+      </div>
+
+	  <div id="posterdetailview">
+          <div class="toolbar">
+              <h1>포스터 상세</h1>
+			  <a href="#" class="back">뒤로</a>
+          </div>
+		  <div id="posterdetailview-wrapper">
+
+		  </div>
+      </div>
+
+    </div>
+  </body>
+</html>

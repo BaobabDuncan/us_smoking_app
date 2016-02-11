@@ -1,0 +1,27 @@
+li.statement_list p{
+  height:22px;
+}
+li.statement_list span.red{
+  color:red;
+}
+li.statement_list span.blue{
+  color:blue;
+}
+li.statement_list span.date{
+  font-size: 12px;
+  display:inline-block;width:50%;
+}
+
+li.statement_list span.type{
+  font-size: 13px;
+  display:inline-block;float:right;
+}
+
+li.statement_list span.detail{
+  font-size: 14px;
+  width:80%;
+}
+li.statement_list span.money{
+  font-size: 13px;
+  display:inline-block;float:right;
+}
